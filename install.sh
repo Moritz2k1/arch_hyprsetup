@@ -14,7 +14,7 @@ git config --global credential.helper store
 # Installing main programs
 echo "Installing core programs"
 sleep 3
-sudo pacman -S neovim firefox kitty thunar lazygit tmux rclone vesktop steam timeshift ark libreoffice-still
+sudo pacman -S neovim firefox kitty thunar lazygit betterbird tmux rclone vesktop steam timeshift ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/
 
 # Installing yay
@@ -38,10 +38,14 @@ pip install neovim --break-system-packages
 
 # Installing AUR packages
 echo "Installing AUR packages"
-yay -S visual-studio-code-bin spotify quickemu quickgui-bin
+sleep 3
+yay -S visual-studio-code-bin spotify quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git
 
 # Installing Hyprland
+echo "Installing Hyprland"
+sleep 3
 sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland
+yay -S hyprpolkitagent
 
 # Setting up rofi
 rm -rf ~/.config/rofi
@@ -49,8 +53,28 @@ git clone git@github.com:w8ste/Tokyonight-rofi-theme.git ~/.config/rofi
 sudo mv ~/.config/rofi/tokyonight_big1.rasi /usr/share/rofi/themes
 rm ~/.config/rofi/README.md
 
+# Setting up hyprpanel
+yay -S ags-hyprpanel-git
+sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww upower pacman-contrib gvfs
+yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker python-gpustat
+cargo install matugen
+
+# Setting up hyprcursor
+sudo pacman -S nwg-look
+yay -S rose-pine-hyprcursor
+
 # Using EZSH install script for zsh, oh-my-zsh, fzf ...
+echo "Installing ZSH + extras"
+sleep 3
 git clone https://github.com/jotyGill/ezsh
 cd ezsh || exit
 ./install.sh -c
 cd || exit
+
+# Installing Miniconda
+echo "Installing Miniconda"
+sleep 3
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
