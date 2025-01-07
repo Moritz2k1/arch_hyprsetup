@@ -1,0 +1,181 @@
+{
+	"publisher": "Digoro",
+	"name": "clipboard",
+	"displayName": "Clipboard",
+	"description": "Simply clipboard like jetbrain",
+	"icon": "resources/clipboard-brand.png",
+	"version": "1.3.3",
+	"extensionKind": [
+		"ui"
+	],
+	"engines": {
+		"vscode": "^1.48.0"
+	},
+	"bugs": {
+		"url": "https://github.com/Digoro/vscode.clipboard/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Digoro/vscode.clipboard.git"
+	},
+	"homepage": "https://github.com/Digoro/vscode.clipboard",
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"clipboard",
+		"copy",
+		"cut",
+		"paste",
+		"history",
+		"digoro"
+	],
+	"activationEvents": [
+		"onCommand:clipboard.copy",
+		"onCommand:clipboard.cut",
+		"onCommand:clipboard.pasteFromClipboard",
+		"onView:clipboard.history"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "clipboard-history",
+					"title": "Clipboard History",
+					"icon": "resources/clipboard-icon.png"
+				}
+			]
+		},
+		"views": {
+			"clipboard-history": [
+				{
+					"id": "clipboard.history",
+					"name": "Clipboard History"
+				}
+			]
+		},
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "clipboard.history.remove",
+					"when": "false"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "clipboard.history.copy",
+					"when": "viewItem =~ /^clipHistoryItem:/",
+					"group": "inline"
+				},
+				{
+					"command": "clipboard.history.remove",
+					"when": "viewItem =~ /^clipHistoryItem:/",
+					"group": "inline"
+				},
+				{
+					"command": "clipboard.history.remove",
+					"when": "viewItem =~ /^clipHistoryItem:/",
+					"group": "1_modification"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "clipboard.copy",
+				"title": "copy lsh.clipboard"
+			},
+			{
+				"command": "clipboard.cut",
+				"title": "cut lsh.clipboard"
+			},
+			{
+				"command": "clipboard.paste",
+				"title": "paste lsh.clipboard"
+			},
+			{
+				"command": "clipboard.history.copy",
+				"title": "Copy",
+				"icon": {
+					"dark": "resources/dark/copy.png",
+					"light": "resources/light/copy.png"
+				}
+			},
+			{
+				"command": "clipboard.history.remove",
+				"title": "Remove",
+				"icon": {
+					"dark": "resources/dark/remove.svg",
+					"light": "resources/light/remove.svg"
+				}
+			}
+		],
+		"keybindings": [
+			{
+				"command": "clipboard.copy",
+				"key": "ctrl+c",
+				"mac": "cmd+c",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "clipboard.cut",
+				"key": "ctrl+x",
+				"mac": "cmd+x",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "clipboard.pasteFromClipboard",
+				"key": "ctrl+shift+v",
+				"mac": "cmd+shift+v",
+				"when": "editorTextFocus"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Clipboard",
+				"properties": {
+					"clipboard.maximumClips": {
+						"type": "integer",
+						"default": 200,
+						"description": "Maximum number of clips to save"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.48.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^14.0.27",
+		"eslint": "^7.6.0",
+		"@typescript-eslint/eslint-plugin": "^3.8.0",
+		"@typescript-eslint/parser": "^3.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.0.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.4.0"
+	},
+	"__metadata": {
+		"id": "405fa476-72d4-4386-8112-bf065bd58d4e",
+		"publisherId": "b2805cc7-2136-44c4-ad43-1864696b5a26",
+		"publisherDisplayName": "Digoro",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1736195767981,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery",
+		"size": 11013485
+	}
+}
