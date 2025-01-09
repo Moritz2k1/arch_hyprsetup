@@ -5,16 +5,24 @@ echo "Updating System"
 sleep 3
 sudo pacman -Syu
 
+# Move dotfiles
+mv ~/arch_hyprsetup/dotfiles/.themes ~/
+mv ~/arch_hyprsetup/dotfiles/.wallpapers ~/
+mv ~/arch_hyprsetup/dotfiles/hypr ~/.config/
+mv ~/arch_hyprsetup/dotfiles/icons ~/.local/share/
+mv ~/arch_hyprsetup/dotfiles/kitty ~/.config/
+
+
 # Installing core packages if not already installed
 echo "Installing needed packages"
 sleep 3
-sudo pacman -S wget curl zip unzip git
+sudo pacman -S wget curl zip unzip git zsh
 git config --global credential.helper store
 
 # Installing main programs
 echo "Installing core programs"
 sleep 3
-sudo pacman -S neovim firefox kitty thunar lazygit betterbird tmux rclone vesktop steam timeshift ark libreoffice-still
+sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit betterbird tmux rclone vesktop steam timeshift ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/
 
 # Installing yay
@@ -61,7 +69,7 @@ cargo install matugen
 
 # Setting up hyprcursor
 sudo pacman -S nwg-look
-yay -S rose-pine-hyprcursor
+yay -S rose-pine-cursor rose-pine-hyprcursor
 
 # Using EZSH install script for zsh, oh-my-zsh, fzf ...
 echo "Installing ZSH + extras"
@@ -78,3 +86,4 @@ mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
+
