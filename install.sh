@@ -5,19 +5,19 @@ echo "Updating System"
 sleep 3
 sudo pacman -Syu
 
+# Installing core packages if not already installed
+echo "Installing needed packages"
+sleep 3
+sudo pacman -S wget curl zip unzip git zsh
+git config --global credential.helper store
+
 # Move dotfiles
 mv ~/arch_hyprsetup/dotfiles/.themes ~/
 mv ~/arch_hyprsetup/dotfiles/.wallpapers ~/
 mv ~/arch_hyprsetup/dotfiles/hypr ~/.config/
 mv ~/arch_hyprsetup/dotfiles/icons ~/.local/share/
 mv ~/arch_hyprsetup/dotfiles/kitty ~/.config/
-
-
-# Installing core packages if not already installed
-echo "Installing needed packages"
-sleep 3
-sudo pacman -S wget curl zip unzip git zsh
-git config --global credential.helper store
+mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
 
 # Installing main programs
 echo "Installing core programs"
