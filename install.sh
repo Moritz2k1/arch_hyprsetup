@@ -23,7 +23,7 @@ mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
 echo "Installing core programs"
 sleep 3
 sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit betterbird tmux rclone vesktop steam timeshift ark libreoffice-still
-git clone https://github.com/Moritz2k1/nvim.git ~/.config/
+git clone https://github.com/Moritz2k1/nvim.git ~/.config/nvim/
 
 # Installing yay
 echo "Building yay from source"
@@ -64,8 +64,7 @@ rm ~/.config/rofi/README.md
 # Setting up hyprpanel
 yay -S ags-hyprpanel-git
 sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww upower pacman-contrib gvfs
-yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker python-gpustat
-cargo install matugen
+yay -S --needed aylurs-gtk-shell-git grimblast-git matugen-bin gpu-screen-recorder-git hyprpicker python-gpustat
 
 # Setting up hyprcursor
 sudo pacman -S nwg-look
@@ -78,12 +77,3 @@ git clone https://github.com/jotyGill/ezsh
 cd ezsh || exit
 ./install.sh -c
 cd || exit
-
-# Installing Miniconda
-echo "Installing Miniconda"
-sleep 3
-mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
-bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
-rm ~/miniconda3/miniconda.sh
-
