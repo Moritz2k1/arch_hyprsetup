@@ -12,8 +12,8 @@ sudo pacman -S wget curl zip unzip git zsh
 git config --global credential.helper store
 
 # Move dotfiles
-SHAREDIR = "$HOME/.local/share/"
-CONFDIR = "$HOME/.config/"
+SHAREDIR = "~/.local/share/"
+CONFDIR = "~/.config/"
 
 if [[ ! -d "$SHAREDIR" ]]; then
   mkdir -p "$SHAREDIR"
