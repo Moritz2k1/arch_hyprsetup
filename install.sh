@@ -22,7 +22,7 @@ mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
 # Installing main programs
 echo "Installing core programs"
 sleep 3
-sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit betterbird tmux rclone vesktop steam-native-runtime protonup-qt timeshift ark libreoffice-still
+sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit tmux rclone steam-native-runtime timeshift ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/nvim/
 
 # Installing yay
@@ -47,19 +47,13 @@ pip install neovim --break-system-packages
 # Installing AUR packages
 echo "Installing AUR packages"
 sleep 3
-yay -S visual-studio-code-bin spotify quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git
+yay -S visual-studio-code-bin vesktop spotify betterbird quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git
 
 # Installing Hyprland
 echo "Installing Hyprland"
 sleep 3
 sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland
 yay -S hyprpolkitagent
-
-# Setting up rofi
-rm -rf ~/.config/rofi
-git clone git@github.com:w8ste/Tokyonight-rofi-theme.git ~/.config/rofi
-sudo mv ~/.config/rofi/tokyonight_big1.rasi /usr/share/rofi/themes
-rm ~/.config/rofi/README.md
 
 # Setting up hyprpanel
 #yay -S ags-hyprpanel-git
