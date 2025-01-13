@@ -11,25 +11,6 @@ sleep 3
 sudo pacman -S wget curl zip unzip git zsh
 git config --global credential.helper store
 
-# Move dotfiles
-SHAREDIR = "~/.local/share/"
-CONFDIR = "~/.config/"
-
-if [[ ! -d "$SHAREDIR" ]]; then
-  mkdir -p "$SHAREDIR"
-fi
-
-if [[ ! -d "$CONFDIR" ]]; then
-  mkdir -p "$CONFDIR"
-fi
-
-mv ~/arch_hyprsetup/dotfiles/.themes ~/
-mv ~/arch_hyprsetup/dotfiles/.wallpapers ~/
-mv ~/arch_hyprsetup/dotfiles/hypr ~/.config/
-mv ~/arch_hyprsetup/dotfiles/icons ~/.local/share/
-mv ~/arch_hyprsetup/dotfiles/kitty ~/.config/
-mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
-
 # Installing main programs
 echo "Installing core programs"
 sleep 3
@@ -61,19 +42,19 @@ echo "Installing AUR packages"
 sleep 3
 yay -S visual-studio-code-bin vesktop spotify betterbird quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git intellij-idea-community-edition
 
-# Installing Hyprland
+# Installing Hyprland + Setup
 echo "Installing Hyprland"
 sleep 3
-sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland
-yay -S hyprpolkitagent
+sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland nwg-look
+yay -S hyprpolkitagent ags-hyprpanel-git rose-pine-cursor rose-pine-hyprcursor
 
-# Setting up hyprpanel
-sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard swww python upower gvfs
-yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat
-
-# Setting up hyprcursor
-sudo pacman -S nwg-look
-yay -S rose-pine-cursor rose-pine-hyprcursor
+# Moving dotfiles
+mv ~/arch_hyprsetup/dotfiles/.themes ~/
+mv ~/arch_hyprsetup/dotfiles/.wallpapers ~/
+mv ~/arch_hyprsetup/dotfiles/hypr ~/.config/
+mv ~/arch_hyprsetup/dotfiles/icons ~/.local/share/
+mv ~/arch_hyprsetup/dotfiles/kitty ~/.config/
+mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
 
 # Using EZSH install script for zsh, oh-my-zsh, fzf ...
 echo "Installing ZSH + extras"
