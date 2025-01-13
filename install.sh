@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Updating System
-echo "Updating System"
-sleep 3
-sudo pacman -Syu
-
 # Installing core packages if not already installed
 echo "Installing needed packages"
 sleep 3
@@ -16,14 +11,6 @@ echo "Installing core programs"
 sleep 3
 sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit tmux rclone steam-native-runtime timeshift ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/nvim/
-
-# Installing yay
-echo "Building yay from source"
-sleep 3
-git clone https://aur.archlinux.org/yay.git 
-cd yay || exit
-makepkg -si
-cd || exit
 
 # Installing rust, nodejs, npm, java, nasm, pip and gef
 echo "Installing programming languages"
