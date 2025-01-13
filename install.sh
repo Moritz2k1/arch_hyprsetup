@@ -12,6 +12,17 @@ sudo pacman -S wget curl zip unzip git zsh
 git config --global credential.helper store
 
 # Move dotfiles
+SHAREDIR = "$HOME/.local/share/"
+CONFDIR = "$HOME/.config/"
+
+if [[ ! -d "$SHAREDIR" ]]; then
+  mkdir -p "$SHAREDIR"
+fi
+
+if [[ ! -d "$CONFDIR" ]]; then
+  mkdir -p "$CONFDIR"
+fi
+
 mv ~/arch_hyprsetup/dotfiles/.themes ~/
 mv ~/arch_hyprsetup/dotfiles/.wallpapers ~/
 mv ~/arch_hyprsetup/dotfiles/hypr ~/.config/
@@ -37,7 +48,8 @@ cd || exit
 echo "Installing programming languages"
 sleep 3
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo pacman -S nodejs npm jre-openjdk jdk-openjdk nasm python-pip
+sudo pacman -S nodejs npm jre-openjdk nasm python-pip
+sudo pacman -S jdk-openjdk
 bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
 
 # Neovim dependencies
@@ -47,7 +59,7 @@ pip install neovim --break-system-packages
 # Installing AUR packages
 echo "Installing AUR packages"
 sleep 3
-yay -S visual-studio-code-bin vesktop spotify betterbird quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git
+yay -S visual-studio-code-bin vesktop spotify betterbird quickemu quickgui-bin pokemon-colorscripts-git ttf-go-mono-git intellij-idea-community-edition
 
 # Installing Hyprland
 echo "Installing Hyprland"
@@ -56,9 +68,8 @@ sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprway
 yay -S hyprpolkitagent
 
 # Setting up hyprpanel
-#yay -S ags-hyprpanel-git
-#sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww upower pacman-contrib gvfs
-#yay -S --needed aylurs-gtk-shell-git grimblast-git matugen-bin gpu-screen-recorder-git hyprpicker python-gpustat
+sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard swww python upower gvfs
+yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat
 
 # Setting up hyprcursor
 sudo pacman -S nwg-look
