@@ -22,7 +22,7 @@ mv ~/arch_hyprsetup/dotfiles/.zprofile ~/
 # Installing main programs
 echo "Installing core programs"
 sleep 3
-sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit betterbird tmux rclone vesktop cachyos-gaming-meta protonup-qt timeshift ark libreoffice-still
+sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit betterbird tmux rclone vesktop steam-native-runtime protonup-qt timeshift ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/nvim/
 
 # Installing yay
