@@ -9,7 +9,7 @@ git config --global credential.helper store
 # Installing main programs
 echo "Installing core programs"
 sleep 3
-sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit tmux rclone steam timeshift ark libreoffice-still
+sudo pacman -S neovim firefox kitty thunar thunar-archive-plugin lazygit tmux rclone steam timeshift xorg-xhost ark libreoffice-still
 git clone https://github.com/Moritz2k1/nvim.git ~/.config/nvim/
 
 # Installing rust, nodejs, npm, java, nasm, pip and gef
@@ -32,8 +32,8 @@ yay -S visual-studio-code-bin vesktop spotify betterbird quickemu quickgui-bin p
 # Installing Hyprland + Setup
 echo "Installing Hyprland"
 sleep 3
-sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland nwg-look
-yay -S hyprpolkitagent ags-hyprpanel-git rose-pine-cursor rose-pine-hyprcursor
+sudo pacman -S hyprland xdg-desktop-portal-hyprland hyprcursor hyprutils hyprwayland-scanner xdg-desktop-portal-wlr rofi-wayland nwg-look btop hyprpicker swww
+yay -S hyprpolkitagent ags-hyprpanel-git rose-pine-cursor rose-pine-hyprcursor pywal grimblast-git gpu-screen-recorder matugen-bin
 
 # Moving dotfiles
 mv ~/arch_hyprsetup/dotfiles/.themes ~/
